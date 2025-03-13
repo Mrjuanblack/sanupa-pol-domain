@@ -1,9 +1,10 @@
 import { z } from "zod";
 import { CreateQuestion, CreateQuestionBoolean, UpdateQuestion, UpdateQuestionBoolean } from "./Question";
 import { mustBeInteger, mustBeNumber, mustBeString, requiredField } from "../ValidationConstants";
+import { Category } from "../Category/Category";
 
 export const CreateQuestionSchema: z.ZodType<CreateQuestion> = z.object({
-    categoryId: z.number({ required_error: mustBeNumber }).int(mustBeInteger).min(1, requiredField),
+    categoryId: z.nativeEnum(Category),
     questionContent: z.string({ required_error: requiredField }).min(1, requiredField),
 
     activeDate: z.date({ required_error: requiredField }),
@@ -15,7 +16,7 @@ export const CreateQuestionSchema: z.ZodType<CreateQuestion> = z.object({
 });
 
 export const CreateQuestionBooleanSchema: z.ZodType<CreateQuestionBoolean> = z.object({
-    categoryId: z.number({ required_error: mustBeNumber }).int(mustBeInteger).min(1, requiredField),
+    categoryId: z.nativeEnum(Category),
     questionContent: z.string({ required_error: requiredField }).min(1, requiredField),
 
     activeDate: z.date({ required_error: requiredField }),
