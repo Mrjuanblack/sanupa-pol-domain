@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { CreateUserRequest, LoginRequest, UpdateIdentificationRequest, UpdateNameRequest, UpdatePasswordRequest, UpdatePhoneNumberRequest } from "./User.js";
+import { CreateUserRequest, LoginRequest, UpdateIdentificationRequest, UpdateNameRequest, UpdatePasswordRequest, UpdatePhoneNumberRequest } from "./User";
 export declare const CreateUserRequestSchema: z.ZodType<CreateUserRequest>;
 export declare const UpdateNameRequestSchema: z.ZodType<UpdateNameRequest>;
 export declare const UpdatePasswordRequestSchema: z.ZodType<UpdatePasswordRequest>;
