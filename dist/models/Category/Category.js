@@ -9,7 +9,6 @@ var Category;
     Category[Category["Recreation"] = 3] = "Recreation";
     Category[Category["Economic"] = 4] = "Economic";
 })(Category || (exports.Category = Category = {}));
-// const test= 0;
 exports.CategoryList = Object.values(Category).filter(value => typeof value === 'number');
 function getCategoryString(category) {
     switch (category) {
