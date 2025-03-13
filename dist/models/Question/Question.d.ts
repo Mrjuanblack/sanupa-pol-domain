@@ -53,4 +53,9 @@ export interface UpdateQuestion {
     activeDate: Date;
     deactivateDate: Date;
 }
+export interface UpdateQuestionBoolean extends UpdateQuestion {
+    positiveAnswerLimit: number;
+    positiveContent: string;
+    negativeContent: string;
+}
 export {};
