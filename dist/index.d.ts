@@ -6,4 +6,5 @@ export * from './models/Verification/VerificationValidation';
 export * from './models/Category/Category';
 export * from './models/Question/Question';
 export * from './models/Question/QuestionValidation';
+export * from './models/Pagination';
 export * from './Utils';

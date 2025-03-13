@@ -22,4 +22,5 @@ __exportStar(require("./models/Verification/VerificationValidation"), exports);
 __exportStar(require("./models/Category/Category"), exports);
 __exportStar(require("./models/Question/Question"), exports);
 __exportStar(require("./models/Question/QuestionValidation"), exports);
+__exportStar(require("./models/Pagination"), exports);
 __exportStar(require("./Utils"), exports);
