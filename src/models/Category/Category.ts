@@ -4,6 +4,7 @@ export enum Category {
     Recreation = 3,
     Economic = 4
 }
+const test = 1;
 export const CategoryList = Object.values(Category).filter(value => typeof value === 'number');
 export function getCategoryString(category: Category): string {
     switch (category) {
