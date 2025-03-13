@@ -19,4 +19,7 @@ __exportStar(require("./models/User/User"), exports);
 __exportStar(require("./models/User/UserValidation"), exports);
 __exportStar(require("./models/Verification/Verification"), exports);
 __exportStar(require("./models/Verification/VerificationValidation"), exports);
+__exportStar(require("./models/Category/Category"), exports);
+__exportStar(require("./models/Question/Question"), exports);
+__exportStar(require("./models/Question/QuestionValidation"), exports);
 __exportStar(require("./Utils"), exports);
