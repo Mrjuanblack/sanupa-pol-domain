@@ -1,3 +1,9 @@
+export enum QuestionType {
+    Boolean = 1,
+    MultipleAnswers = 2,
+    SingleAnswer = 3
+}
+
 interface QuestionBase {
     id: number
     categoryId: number
@@ -8,11 +14,28 @@ interface QuestionBase {
 }
 
 export interface Question extends QuestionBase {
-    isBooleanQuestion: false
+    questionType: QuestionType.SingleAnswer
+}
+
+export interface QuestionMultiple extends QuestionBase {
+    questionType: QuestionType.MultipleAnswers
+}
+
+export class QuestionMultipleEntity implements QuestionMultiple {
+    questionType: QuestionType.MultipleAnswers
+    constructor(
+        public id: number,
+        public categoryId: number,
+        public questionContent: string,
+        public activeDate: Date,
+        public deactivateDate: Date
+    ) {
+        this.questionType = QuestionType.MultipleAnswers;
+    }
 }
 
 export interface QuestionBoolean extends QuestionBase {
-    isBooleanQuestion: true
+    questionType: QuestionType.Boolean
 
     positiveAnswerLimit: number
 
@@ -21,7 +44,7 @@ export interface QuestionBoolean extends QuestionBase {
 }
 
 export class QuestionEntity implements Question {
-    isBooleanQuestion: false
+    questionType: QuestionType.SingleAnswer
 
     constructor(
         public id: number,
@@ -30,13 +53,12 @@ export class QuestionEntity implements Question {
         public activeDate: Date,
         public deactivateDate: Date
     ) {
-        this.isBooleanQuestion = false
+        this.questionType = QuestionType.SingleAnswer;
     }
-
 }
 
 export class QuestionBooleanEntity implements QuestionBoolean {
-    isBooleanQuestion: true
+    questionType: QuestionType.Boolean
 
     constructor(
         public id: number,
@@ -48,11 +70,12 @@ export class QuestionBooleanEntity implements QuestionBoolean {
         public positiveContent: string,
         public negativeContent: string,
     ) {
-        this.isBooleanQuestion = true
+        this.questionType = QuestionType.Boolean;
     }
 }
 
-interface CreateQuestionBase {
+export interface CreateQuestion {
+    questionType: QuestionType.SingleAnswer | QuestionType.MultipleAnswers
     categoryId: number
     questionContent: string
 
@@ -60,11 +83,13 @@ interface CreateQuestionBase {
     deactivateDate: Date
 }
 
-export interface CreateQuestion extends CreateQuestionBase {
+export interface CreateQuestionBoolean {
+    categoryId: number
+    questionContent: string
 
-}
+    activeDate: Date
+    deactivateDate: Date
 
-export interface CreateQuestionBoolean extends CreateQuestionBase {
     positiveAnswerLimit: number
 
     positiveContent: string

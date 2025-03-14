@@ -1,9 +1,13 @@
 import { z } from "zod";
-import { CreateQuestion, CreateQuestionBoolean, UpdateQuestion, UpdateQuestionBoolean } from "./Question";
+import { CreateQuestion, CreateQuestionBoolean, QuestionType, UpdateQuestion, UpdateQuestionBoolean } from "./Question";
 import { mustBeInteger, mustBeNumber, mustBeString, requiredField } from "../ValidationConstants";
 import { Category } from "../Category/Category";
 
 export const CreateQuestionSchema: z.ZodType<CreateQuestion> = z.object({
+    questionType: z.union([
+        z.literal(QuestionType.MultipleAnswers),
+        z.literal(QuestionType.SingleAnswer)
+    ], { required_error: 'Solo se permite Respuesta múltiple o Respuesta singular' }),
     categoryId: z.nativeEnum(Category),
     questionContent: z.string({ required_error: requiredField }).min(1, requiredField),
 
@@ -12,7 +16,7 @@ export const CreateQuestionSchema: z.ZodType<CreateQuestion> = z.object({
 }).refine(schema => {
     return schema.activeDate.getTime() < schema.deactivateDate.getTime();
 }, {
-    message: "El dia de inicio no puede ser mayor o ugal que el dia de finalización", path: ["deactivateDate"]
+    message: "El dia de inicio no puede ser mayor o igual que el dia de finalización", path: ["deactivateDate"]
 });
 
 export const CreateQuestionBooleanSchema: z.ZodType<CreateQuestionBoolean> = z.object({
@@ -29,7 +33,7 @@ export const CreateQuestionBooleanSchema: z.ZodType<CreateQuestionBoolean> = z.o
 }).refine(schema => {
     return schema.activeDate.getTime() < schema.deactivateDate.getTime();
 }, {
-    message: "El dia de inicio no puede ser mayor o ugal que el dia de finalización", path: ["deactivateDate"]
+    message: "El dia de inicio no puede ser mayor o igual que el dia de finalización", path: ["deactivateDate"]
 });
 
 export const UpdateQuestionSchema: z.ZodType<UpdateQuestion> = z.object({
@@ -40,7 +44,7 @@ export const UpdateQuestionSchema: z.ZodType<UpdateQuestion> = z.object({
 }).refine(schema => {
     return schema.activeDate.getTime() < schema.deactivateDate.getTime();
 }, {
-    message: "El dia de inicio no puede ser mayor o ugal que el dia de finalización", path: ["deactivateDate"]
+    message: "El dia de inicio no puede ser mayor o igual que el dia de finalización", path: ["deactivateDate"]
 });
 
 export const UpdateQuestionBooleanSchema: z.ZodType<UpdateQuestionBoolean> = z.object({
@@ -56,5 +60,5 @@ export const UpdateQuestionBooleanSchema: z.ZodType<UpdateQuestionBoolean> = z.o
 }).refine(schema => {
     return schema.activeDate.getTime() < schema.deactivateDate.getTime();
 }, {
-    message: "El dia de inicio no puede ser mayor o ugal que el dia de finalización", path: ["deactivateDate"]
+    message: "El dia de inicio no puede ser mayor o igual que el dia de finalización", path: ["deactivateDate"]
 });
