@@ -1,12 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.QuestionBooleanEntity = exports.QuestionEntity = exports.QuestionMultipleEntity = exports.QuestionType = void 0;
+exports.QuestionBooleanEntity = exports.QuestionEntity = exports.QuestionMultipleEntity = exports.QuestionTypeList = exports.QuestionType = void 0;
+exports.getQuestionTypeString = getQuestionTypeString;
 var QuestionType;
 (function (QuestionType) {
     QuestionType[QuestionType["Boolean"] = 1] = "Boolean";
     QuestionType[QuestionType["MultipleAnswers"] = 2] = "MultipleAnswers";
     QuestionType[QuestionType["SingleAnswer"] = 3] = "SingleAnswer";
 })(QuestionType || (exports.QuestionType = QuestionType = {}));
+exports.QuestionTypeList = Object.values(QuestionType).filter(value => typeof value === 'number');
+function getQuestionTypeString(category) {
+    switch (category) {
+        case QuestionType.Boolean:
+            return "Booleana";
+        case QuestionType.MultipleAnswers:
+            return "Múltiple";
+        case QuestionType.SingleAnswer:
+            return "Única";
+    }
+}
 class QuestionMultipleEntity {
     constructor(id, categoryId, questionContent, activeDate, deactivateDate) {
         this.id = id;

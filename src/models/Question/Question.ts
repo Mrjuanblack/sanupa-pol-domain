@@ -3,6 +3,17 @@ export enum QuestionType {
     MultipleAnswers = 2,
     SingleAnswer = 3
 }
+export const QuestionTypeList = Object.values(QuestionType).filter(value => typeof value === 'number');
+export function getQuestionTypeString(category: QuestionType): string {
+    switch (category) {
+        case QuestionType.Boolean:
+            return "Booleana";
+        case QuestionType.MultipleAnswers:
+            return "Múltiple";
+        case QuestionType.SingleAnswer:
+            return "Única";
+    }
+}
 
 interface QuestionBase {
     id: number

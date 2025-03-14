@@ -3,6 +3,8 @@ export declare enum QuestionType {
     MultipleAnswers = 2,
     SingleAnswer = 3
 }
+export declare const QuestionTypeList: QuestionType[];
+export declare function getQuestionTypeString(category: QuestionType): string;
 interface QuestionBase {
     id: number;
     categoryId: number;
