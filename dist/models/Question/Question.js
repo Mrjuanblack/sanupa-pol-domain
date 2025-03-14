@@ -8,7 +8,7 @@ class QuestionEntity {
         this.questionContent = questionContent;
         this.activeDate = activeDate;
         this.deactivateDate = deactivateDate;
-        this.isBooleanQuestion = true;
+        this.isBooleanQuestion = false;
     }
 }
 exports.QuestionEntity = QuestionEntity;
@@ -22,7 +22,7 @@ class QuestionBooleanEntity {
         this.positiveAnswerLimit = positiveAnswerLimit;
         this.positiveContent = positiveContent;
         this.negativeContent = negativeContent;
-        this.isBooleanQuestion = false;
+        this.isBooleanQuestion = true;
     }
 }
 exports.QuestionBooleanEntity = QuestionBooleanEntity;

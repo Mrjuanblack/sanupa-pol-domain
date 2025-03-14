@@ -6,10 +6,10 @@ interface QuestionBase {
     deactivateDate: Date;
 }
 export interface Question extends QuestionBase {
-    isBooleanQuestion: true;
+    isBooleanQuestion: false;
 }
 export interface QuestionBoolean extends QuestionBase {
-    isBooleanQuestion: false;
+    isBooleanQuestion: true;
     positiveAnswerLimit: number;
     positiveContent: string;
     negativeContent: string;
@@ -20,7 +20,7 @@ export declare class QuestionEntity implements Question {
     questionContent: string;
     activeDate: Date;
     deactivateDate: Date;
-    isBooleanQuestion: true;
+    isBooleanQuestion: false;
     constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date);
 }
 export declare class QuestionBooleanEntity implements QuestionBoolean {
@@ -32,7 +32,7 @@ export declare class QuestionBooleanEntity implements QuestionBoolean {
     positiveAnswerLimit: number;
     positiveContent: string;
     negativeContent: string;
-    isBooleanQuestion: false;
+    isBooleanQuestion: true;
     constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, positiveAnswerLimit: number, positiveContent: string, negativeContent: string);
 }
 interface CreateQuestionBase {

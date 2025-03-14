@@ -8,11 +8,11 @@ interface QuestionBase {
 }
 
 export interface Question extends QuestionBase {
-    isBooleanQuestion: true
+    isBooleanQuestion: false
 }
 
 export interface QuestionBoolean extends QuestionBase {
-    isBooleanQuestion: false
+    isBooleanQuestion: true
 
     positiveAnswerLimit: number
 
@@ -21,7 +21,7 @@ export interface QuestionBoolean extends QuestionBase {
 }
 
 export class QuestionEntity implements Question {
-    isBooleanQuestion: true
+    isBooleanQuestion: false
 
     constructor(
         public id: number,
@@ -30,13 +30,13 @@ export class QuestionEntity implements Question {
         public activeDate: Date,
         public deactivateDate: Date
     ) {
-        this.isBooleanQuestion = true
+        this.isBooleanQuestion = false
     }
 
 }
 
 export class QuestionBooleanEntity implements QuestionBoolean {
-    isBooleanQuestion: false
+    isBooleanQuestion: true
 
     constructor(
         public id: number,
@@ -48,7 +48,7 @@ export class QuestionBooleanEntity implements QuestionBoolean {
         public positiveContent: string,
         public negativeContent: string,
     ) {
-        this.isBooleanQuestion = false
+        this.isBooleanQuestion = true
     }
 }
 
