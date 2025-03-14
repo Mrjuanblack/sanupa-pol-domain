@@ -7,8 +7,8 @@ const Category_1 = require("../Category/Category");
 exports.CreateQuestionSchema = zod_1.z.object({
     categoryId: zod_1.z.nativeEnum(Category_1.Category),
     questionContent: zod_1.z.string({ required_error: ValidationConstants_1.requiredField }).min(1, ValidationConstants_1.requiredField),
-    activeDate: zod_1.z.date({ required_error: ValidationConstants_1.requiredField }),
-    deactivateDate: zod_1.z.date({ required_error: ValidationConstants_1.requiredField })
+    activeDate: zod_1.z.coerce.date({ required_error: ValidationConstants_1.requiredField }),
+    deactivateDate: zod_1.z.coerce.date({ required_error: ValidationConstants_1.requiredField })
 }).refine(schema => {
     return schema.activeDate.getTime() < schema.deactivateDate.getTime();
 }, {
@@ -17,8 +17,8 @@ exports.CreateQuestionSchema = zod_1.z.object({
 exports.CreateQuestionBooleanSchema = zod_1.z.object({
     categoryId: zod_1.z.nativeEnum(Category_1.Category),
     questionContent: zod_1.z.string({ required_error: ValidationConstants_1.requiredField }).min(1, ValidationConstants_1.requiredField),
-    activeDate: zod_1.z.date({ required_error: ValidationConstants_1.requiredField }),
-    deactivateDate: zod_1.z.date({ required_error: ValidationConstants_1.requiredField }),
+    activeDate: zod_1.z.coerce.date({ required_error: ValidationConstants_1.requiredField }),
+    deactivateDate: zod_1.z.coerce.date({ required_error: ValidationConstants_1.requiredField }),
     positiveAnswerLimit: zod_1.z.number({ required_error: ValidationConstants_1.mustBeNumber }).int(ValidationConstants_1.mustBeInteger).min(1, ValidationConstants_1.requiredField),
     positiveContent: zod_1.z.string({ required_error: ValidationConstants_1.requiredField }).min(1, ValidationConstants_1.requiredField),
     negativeContent: zod_1.z.string({ required_error: ValidationConstants_1.requiredField }).min(1, ValidationConstants_1.requiredField)
@@ -29,8 +29,8 @@ exports.CreateQuestionBooleanSchema = zod_1.z.object({
 });
 exports.UpdateQuestionSchema = zod_1.z.object({
     questionContent: zod_1.z.string({ required_error: ValidationConstants_1.requiredField }).min(1, ValidationConstants_1.requiredField),
-    activeDate: zod_1.z.date({ required_error: ValidationConstants_1.requiredField }),
-    deactivateDate: zod_1.z.date({ required_error: ValidationConstants_1.requiredField }),
+    activeDate: zod_1.z.coerce.date({ required_error: ValidationConstants_1.requiredField }),
+    deactivateDate: zod_1.z.coerce.date({ required_error: ValidationConstants_1.requiredField }),
 }).refine(schema => {
     return schema.activeDate.getTime() < schema.deactivateDate.getTime();
 }, {
@@ -38,8 +38,8 @@ exports.UpdateQuestionSchema = zod_1.z.object({
 });
 exports.UpdateQuestionBooleanSchema = zod_1.z.object({
     questionContent: zod_1.z.string({ required_error: ValidationConstants_1.requiredField }).min(1, ValidationConstants_1.requiredField),
-    activeDate: zod_1.z.date({ required_error: ValidationConstants_1.requiredField }),
-    deactivateDate: zod_1.z.date({ required_error: ValidationConstants_1.requiredField }),
+    activeDate: zod_1.z.coerce.date({ required_error: ValidationConstants_1.requiredField }),
+    deactivateDate: zod_1.z.coerce.date({ required_error: ValidationConstants_1.requiredField }),
     positiveAnswerLimit: zod_1.z.number({ required_error: ValidationConstants_1.mustBeNumber }).int(ValidationConstants_1.mustBeInteger).min(1, ValidationConstants_1.requiredField),
     positiveContent: zod_1.z.string({ required_error: ValidationConstants_1.requiredField }).min(1, ValidationConstants_1.requiredField),
     negativeContent: zod_1.z.string({ required_error: ValidationConstants_1.requiredField }).min(1, ValidationConstants_1.requiredField)

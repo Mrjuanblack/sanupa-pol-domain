@@ -7,8 +7,8 @@ export const CreateQuestionSchema: z.ZodType<CreateQuestion> = z.object({
     categoryId: z.nativeEnum(Category),
     questionContent: z.string({ required_error: requiredField }).min(1, requiredField),
 
-    activeDate: z.date({ required_error: requiredField }),
-    deactivateDate: z.date({ required_error: requiredField })
+    activeDate: z.coerce.date({ required_error: requiredField }),
+    deactivateDate: z.coerce.date({ required_error: requiredField })
 }).refine(schema => {
     return schema.activeDate.getTime() < schema.deactivateDate.getTime();
 }, {
@@ -19,8 +19,8 @@ export const CreateQuestionBooleanSchema: z.ZodType<CreateQuestionBoolean> = z.o
     categoryId: z.nativeEnum(Category),
     questionContent: z.string({ required_error: requiredField }).min(1, requiredField),
 
-    activeDate: z.date({ required_error: requiredField }),
-    deactivateDate: z.date({ required_error: requiredField }),
+    activeDate: z.coerce.date({ required_error: requiredField }),
+    deactivateDate: z.coerce.date({ required_error: requiredField }),
 
     positiveAnswerLimit: z.number({ required_error: mustBeNumber }).int(mustBeInteger).min(1, requiredField),
 
@@ -35,8 +35,8 @@ export const CreateQuestionBooleanSchema: z.ZodType<CreateQuestionBoolean> = z.o
 export const UpdateQuestionSchema: z.ZodType<UpdateQuestion> = z.object({
     questionContent: z.string({ required_error: requiredField }).min(1, requiredField),
 
-    activeDate: z.date({ required_error: requiredField }),
-    deactivateDate: z.date({ required_error: requiredField }),
+    activeDate: z.coerce.date({ required_error: requiredField }),
+    deactivateDate: z.coerce.date({ required_error: requiredField }),
 }).refine(schema => {
     return schema.activeDate.getTime() < schema.deactivateDate.getTime();
 }, {
@@ -46,8 +46,8 @@ export const UpdateQuestionSchema: z.ZodType<UpdateQuestion> = z.object({
 export const UpdateQuestionBooleanSchema: z.ZodType<UpdateQuestionBoolean> = z.object({
     questionContent: z.string({ required_error: requiredField }).min(1, requiredField),
 
-    activeDate: z.date({ required_error: requiredField }),
-    deactivateDate: z.date({ required_error: requiredField }),
+    activeDate: z.coerce.date({ required_error: requiredField }),
+    deactivateDate: z.coerce.date({ required_error: requiredField }),
 
     positiveAnswerLimit: z.number({ required_error: mustBeNumber }).int(mustBeInteger).min(1, requiredField),
 
