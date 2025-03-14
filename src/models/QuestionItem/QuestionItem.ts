@@ -1,27 +1,27 @@
+import { SimpleUser } from "../User/User"
+
 export interface QuestionItem {
     id: number
+    creator: SimpleUser
     questionId: number
 
     itemContent: string
-    isOpen: boolean
 }
 
-export class QuestionItemEntity {
+export class QuestionItemEntity implements QuestionItem {
     constructor(
         public id: number,
+        public creator: SimpleUser,
         public questionId: number,
         public itemContent: string,
-        public isOpen: boolean
     ) { }
 }
 
 export interface CreateQuestionItem {
     questionId: number
     itemContent: string
-    isOpen: boolean
 }
 
 export interface UpdateQuestionItem {
     itemContent: string
-    isOpen: boolean
 }

@@ -1,22 +1,21 @@
+import { SimpleUser } from "../User/User";
 export interface QuestionItem {
     id: number;
+    creator: SimpleUser;
     questionId: number;
     itemContent: string;
-    isOpen: boolean;
 }
-export declare class QuestionItemEntity {
+export declare class QuestionItemEntity implements QuestionItem {
     id: number;
+    creator: SimpleUser;
     questionId: number;
     itemContent: string;
-    isOpen: boolean;
-    constructor(id: number, questionId: number, itemContent: string, isOpen: boolean);
+    constructor(id: number, creator: SimpleUser, questionId: number, itemContent: string);
 }
 export interface CreateQuestionItem {
     questionId: number;
     itemContent: string;
-    isOpen: boolean;
 }
 export interface UpdateQuestionItem {
     itemContent: string;
-    isOpen: boolean;
 }

@@ -5,10 +5,8 @@ import { mustBeNumber, mustBeInteger, requiredField } from "../ValidationConstan
 export const CreateQuestionItemSchema: z.ZodType<CreateQuestionItem> = z.object({
     questionId: z.number({ required_error: mustBeNumber }).int(mustBeInteger).min(1, requiredField),
     itemContent: z.string({ required_error: requiredField }).min(1, { message: requiredField }),
-    isOpen: z.boolean({ required_error: requiredField })
 })
 
 export const UpdateQuestionItemSchema: z.ZodType<UpdateQuestionItem> = z.object({
-    itemContent: z.string({ required_error: requiredField }).min(1, { message: requiredField }),
-    isOpen: z.boolean({ required_error: requiredField })
+    itemContent: z.string({ required_error: requiredField }).min(1, { message: requiredField })
 })
