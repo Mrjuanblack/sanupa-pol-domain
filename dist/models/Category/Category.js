@@ -13,7 +13,7 @@ exports.CategoryList = Object.values(Category).filter(value => typeof value === 
 function getCategoryString(category) {
     switch (category) {
         case Category.AlwaysForward:
-            return "Siepre Adelante, Ni Un Paso Atrás";
+            return "Siempre Adelante, Ni Un Paso Atrás";
         case Category.ThinkingTank:
             return "Tanque de Pensamiento";
         case Category.Recreation:
