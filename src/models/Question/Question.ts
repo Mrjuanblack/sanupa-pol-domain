@@ -1,3 +1,5 @@
+import { QuestionItemEntity } from "../QuestionItem/QuestionItem";
+
 export enum QuestionType {
     Boolean = 1,
     MultipleAnswers = 2,
@@ -45,6 +47,21 @@ export class QuestionMultipleEntity implements QuestionMultiple {
     }
 }
 
+export class QuestionMultiple_AnswersEntity extends QuestionMultipleEntity {
+    questionItems: QuestionItemEntity[];
+    constructor(
+        id: number,
+        categoryId: number,
+        questionContent: string,
+        activeDate: Date,
+        deactivateDate: Date,
+        questionItems: QuestionItemEntity[]
+    ) {
+        super(id, categoryId, questionContent, activeDate, deactivateDate)
+        this.questionItems = questionItems;
+    }
+}
+
 export interface QuestionBoolean extends QuestionBase {
     questionType: QuestionType.Boolean
 
@@ -65,6 +82,21 @@ export class QuestionEntity implements Question {
         public deactivateDate: Date
     ) {
         this.questionType = QuestionType.SingleAnswer;
+    }
+}
+
+export class Question_AnswersEntity extends QuestionEntity {
+    questionItems: QuestionItemEntity[];
+    constructor(
+        id: number,
+        categoryId: number,
+        questionContent: string,
+        activeDate: Date,
+        deactivateDate: Date,
+        questionItems: QuestionItemEntity[]
+    ) {
+        super(id, categoryId, questionContent, activeDate, deactivateDate)
+        this.questionItems = questionItems;
     }
 }
 

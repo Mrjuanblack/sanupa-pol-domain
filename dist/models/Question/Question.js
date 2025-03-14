@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.QuestionBooleanEntity = exports.QuestionEntity = exports.QuestionMultipleEntity = exports.QuestionTypeList = exports.QuestionType = void 0;
+exports.QuestionBooleanEntity = exports.Question_AnswersEntity = exports.QuestionEntity = exports.QuestionMultiple_AnswersEntity = exports.QuestionMultipleEntity = exports.QuestionTypeList = exports.QuestionType = void 0;
 exports.getQuestionTypeString = getQuestionTypeString;
 var QuestionType;
 (function (QuestionType) {
@@ -30,6 +30,13 @@ class QuestionMultipleEntity {
     }
 }
 exports.QuestionMultipleEntity = QuestionMultipleEntity;
+class QuestionMultiple_AnswersEntity extends QuestionMultipleEntity {
+    constructor(id, categoryId, questionContent, activeDate, deactivateDate, questionItems) {
+        super(id, categoryId, questionContent, activeDate, deactivateDate);
+        this.questionItems = questionItems;
+    }
+}
+exports.QuestionMultiple_AnswersEntity = QuestionMultiple_AnswersEntity;
 class QuestionEntity {
     constructor(id, categoryId, questionContent, activeDate, deactivateDate) {
         this.id = id;
@@ -41,6 +48,13 @@ class QuestionEntity {
     }
 }
 exports.QuestionEntity = QuestionEntity;
+class Question_AnswersEntity extends QuestionEntity {
+    constructor(id, categoryId, questionContent, activeDate, deactivateDate, questionItems) {
+        super(id, categoryId, questionContent, activeDate, deactivateDate);
+        this.questionItems = questionItems;
+    }
+}
+exports.Question_AnswersEntity = Question_AnswersEntity;
 class QuestionBooleanEntity {
     constructor(id, categoryId, questionContent, activeDate, deactivateDate, positiveAnswerLimit, positiveContent, negativeContent) {
         this.id = id;
