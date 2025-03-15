@@ -8,6 +8,7 @@ export const CreateQuestionSchema: z.ZodType<CreateQuestion> = z.object({
         z.literal(QuestionType.MultipleAnswers),
         z.literal(QuestionType.SingleAnswer)
     ], { required_error: 'Solo se permite Respuesta múltiple o Respuesta singular' }),
+    allowUserProposals: z.boolean(),
     categoryId: z.nativeEnum(Category),
     questionContent: z.string({ required_error: requiredField }).min(1, requiredField),
 
@@ -37,6 +38,7 @@ export const CreateQuestionBooleanSchema: z.ZodType<CreateQuestionBoolean> = z.o
 });
 
 export const UpdateQuestionSchema: z.ZodType<UpdateQuestion> = z.object({
+    allowUserProposals: z.boolean(),
     questionContent: z.string({ required_error: requiredField }).min(1, requiredField),
 
     activeDate: z.coerce.date({ required_error: requiredField }),

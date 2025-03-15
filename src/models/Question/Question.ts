@@ -28,10 +28,12 @@ interface QuestionBase {
 }
 
 export interface Question extends QuestionBase {
+    allowUserProposals: boolean
     questionType: QuestionType.SingleAnswer
 }
 
 export interface QuestionMultiple extends QuestionBase {
+    allowUserProposals: boolean
     questionType: QuestionType.MultipleAnswers
 }
 
@@ -39,6 +41,7 @@ export class QuestionMultipleEntity implements QuestionMultiple {
     questionType: QuestionType.MultipleAnswers
     constructor(
         public id: number,
+        public allowUserProposals: boolean,
         public categoryId: number,
         public questionContent: string,
         public activeDate: Date,
@@ -53,6 +56,7 @@ export class QuestionMultiple_AnswersEntity extends QuestionMultipleEntity {
     answers: AnswerEntity[]
     constructor(
         id: number,
+        allowUserProposals: boolean,
         categoryId: number,
         questionContent: string,
         activeDate: Date,
@@ -60,7 +64,7 @@ export class QuestionMultiple_AnswersEntity extends QuestionMultipleEntity {
         questionItems: QuestionItemEntity[],
         answers: AnswerEntity[]
     ) {
-        super(id, categoryId, questionContent, activeDate, deactivateDate)
+        super(id, allowUserProposals, categoryId, questionContent, activeDate, deactivateDate)
         this.questionItems = questionItems;
         this.answers = answers;
     }
@@ -80,6 +84,7 @@ export class QuestionEntity implements Question {
 
     constructor(
         public id: number,
+        public allowUserProposals: boolean,
         public categoryId: number,
         public questionContent: string,
         public activeDate: Date,
@@ -94,6 +99,7 @@ export class Question_AnswersEntity extends QuestionEntity {
     answer: AnswerEntity | null
     constructor(
         id: number,
+        allowUserProposals: boolean,
         categoryId: number,
         questionContent: string,
         activeDate: Date,
@@ -101,7 +107,7 @@ export class Question_AnswersEntity extends QuestionEntity {
         questionItems: QuestionItemEntity[],
         answer: AnswerEntity | null
     ) {
-        super(id, categoryId, questionContent, activeDate, deactivateDate)
+        super(id, allowUserProposals, categoryId, questionContent, activeDate, deactivateDate)
         this.questionItems = questionItems;
         this.answer = answer;
     }
@@ -165,6 +171,7 @@ export class HistoricQuestionEntity implements HistoricQuestion {
 
 export interface CreateQuestion {
     questionType: QuestionType.SingleAnswer | QuestionType.MultipleAnswers
+    allowUserProposals: boolean
     categoryId: number
     questionContent: string
 
@@ -186,13 +193,18 @@ export interface CreateQuestionBoolean {
 }
 
 export interface UpdateQuestion {
+    allowUserProposals: boolean
     questionContent: string
 
     activeDate: Date
     deactivateDate: Date
 }
 
-export interface UpdateQuestionBoolean extends UpdateQuestion {
+export interface UpdateQuestionBoolean {
+    questionContent: string
+
+    activeDate: Date
+    deactivateDate: Date
     positiveAnswerLimit: number
 
     positiveContent: string

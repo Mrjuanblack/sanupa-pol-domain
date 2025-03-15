@@ -10,6 +10,7 @@ exports.CreateQuestionSchema = zod_1.z.object({
         zod_1.z.literal(Question_1.QuestionType.MultipleAnswers),
         zod_1.z.literal(Question_1.QuestionType.SingleAnswer)
     ], { required_error: 'Solo se permite Respuesta múltiple o Respuesta singular' }),
+    allowUserProposals: zod_1.z.boolean(),
     categoryId: zod_1.z.nativeEnum(Category_1.Category),
     questionContent: zod_1.z.string({ required_error: ValidationConstants_1.requiredField }).min(1, ValidationConstants_1.requiredField),
     activeDate: zod_1.z.coerce.date({ required_error: ValidationConstants_1.requiredField }),
@@ -33,6 +34,7 @@ exports.CreateQuestionBooleanSchema = zod_1.z.object({
     message: "El dia de inicio no puede ser mayor o igual que el dia de finalización", path: ["deactivateDate"]
 });
 exports.UpdateQuestionSchema = zod_1.z.object({
+    allowUserProposals: zod_1.z.boolean(),
     questionContent: zod_1.z.string({ required_error: ValidationConstants_1.requiredField }).min(1, ValidationConstants_1.requiredField),
     activeDate: zod_1.z.coerce.date({ required_error: ValidationConstants_1.requiredField }),
     deactivateDate: zod_1.z.coerce.date({ required_error: ValidationConstants_1.requiredField }),

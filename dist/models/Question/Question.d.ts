@@ -15,24 +15,27 @@ interface QuestionBase {
     deactivateDate: Date;
 }
 export interface Question extends QuestionBase {
+    allowUserProposals: boolean;
     questionType: QuestionType.SingleAnswer;
 }
 export interface QuestionMultiple extends QuestionBase {
+    allowUserProposals: boolean;
     questionType: QuestionType.MultipleAnswers;
 }
 export declare class QuestionMultipleEntity implements QuestionMultiple {
     id: number;
+    allowUserProposals: boolean;
     categoryId: number;
     questionContent: string;
     activeDate: Date;
     deactivateDate: Date;
     questionType: QuestionType.MultipleAnswers;
-    constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date);
+    constructor(id: number, allowUserProposals: boolean, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date);
 }
 export declare class QuestionMultiple_AnswersEntity extends QuestionMultipleEntity {
     questionItems: QuestionItemEntity[];
     answers: AnswerEntity[];
-    constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, questionItems: QuestionItemEntity[], answers: AnswerEntity[]);
+    constructor(id: number, allowUserProposals: boolean, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, questionItems: QuestionItemEntity[], answers: AnswerEntity[]);
 }
 export interface QuestionBoolean extends QuestionBase {
     questionType: QuestionType.Boolean;
@@ -42,17 +45,18 @@ export interface QuestionBoolean extends QuestionBase {
 }
 export declare class QuestionEntity implements Question {
     id: number;
+    allowUserProposals: boolean;
     categoryId: number;
     questionContent: string;
     activeDate: Date;
     deactivateDate: Date;
     questionType: QuestionType.SingleAnswer;
-    constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date);
+    constructor(id: number, allowUserProposals: boolean, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date);
 }
 export declare class Question_AnswersEntity extends QuestionEntity {
     questionItems: QuestionItemEntity[];
     answer: AnswerEntity | null;
-    constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, questionItems: QuestionItemEntity[], answer: AnswerEntity | null);
+    constructor(id: number, allowUserProposals: boolean, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, questionItems: QuestionItemEntity[], answer: AnswerEntity | null);
 }
 export declare class QuestionBooleanEntity implements QuestionBoolean {
     id: number;
@@ -95,6 +99,7 @@ export declare class HistoricQuestionEntity implements HistoricQuestion {
 }
 export interface CreateQuestion {
     questionType: QuestionType.SingleAnswer | QuestionType.MultipleAnswers;
+    allowUserProposals: boolean;
     categoryId: number;
     questionContent: string;
     activeDate: Date;
@@ -110,11 +115,15 @@ export interface CreateQuestionBoolean {
     negativeContent: string;
 }
 export interface UpdateQuestion {
+    allowUserProposals: boolean;
     questionContent: string;
     activeDate: Date;
     deactivateDate: Date;
 }
-export interface UpdateQuestionBoolean extends UpdateQuestion {
+export interface UpdateQuestionBoolean {
+    questionContent: string;
+    activeDate: Date;
+    deactivateDate: Date;
     positiveAnswerLimit: number;
     positiveContent: string;
     negativeContent: string;
