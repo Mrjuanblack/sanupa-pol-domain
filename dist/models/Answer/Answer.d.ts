@@ -7,7 +7,6 @@ export interface AnswerBoolean {
     userId: number;
     questionId: number;
     value: boolean;
-    votes: number;
 }
 export declare class AnswerEntity implements Answer {
     userId: number;
@@ -19,6 +18,5 @@ export declare class AnswerBooleanEntity implements AnswerBoolean {
     userId: number;
     questionId: number;
     value: boolean;
-    votes: number;
-    constructor(userId: number, questionId: number, value: boolean, votes: number);
+    constructor(userId: number, questionId: number, value: boolean);
 }

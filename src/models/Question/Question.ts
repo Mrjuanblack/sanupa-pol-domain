@@ -110,6 +110,8 @@ export class Question_AnswersEntity extends QuestionEntity {
 export class QuestionBooleanEntity implements QuestionBoolean {
     questionType: QuestionType.Boolean
     answer: AnswerBooleanEntity | null
+    positiveVotes: number
+    negativeVotes: number
     constructor(
         public id: number,
         public categoryId: number,
@@ -119,9 +121,13 @@ export class QuestionBooleanEntity implements QuestionBoolean {
         public positiveAnswerLimit: number,
         public positiveContent: string,
         public negativeContent: string,
+        positiveVotes: number,
+        negativeVotes: number,
         answer: AnswerBooleanEntity | null
     ) {
         this.questionType = QuestionType.Boolean;
+        this.positiveVotes = positiveVotes;
+        this.negativeVotes = negativeVotes;
         this.answer = answer;
     }
 }

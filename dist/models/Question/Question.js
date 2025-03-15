@@ -58,7 +58,7 @@ class Question_AnswersEntity extends QuestionEntity {
 }
 exports.Question_AnswersEntity = Question_AnswersEntity;
 class QuestionBooleanEntity {
-    constructor(id, categoryId, questionContent, activeDate, deactivateDate, positiveAnswerLimit, positiveContent, negativeContent, answer) {
+    constructor(id, categoryId, questionContent, activeDate, deactivateDate, positiveAnswerLimit, positiveContent, negativeContent, positiveVotes, negativeVotes, answer) {
         this.id = id;
         this.categoryId = categoryId;
         this.questionContent = questionContent;
@@ -68,6 +68,8 @@ class QuestionBooleanEntity {
         this.positiveContent = positiveContent;
         this.negativeContent = negativeContent;
         this.questionType = QuestionType.Boolean;
+        this.positiveVotes = positiveVotes;
+        this.negativeVotes = negativeVotes;
         this.answer = answer;
     }
 }

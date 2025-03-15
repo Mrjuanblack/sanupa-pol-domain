@@ -65,7 +65,9 @@ export declare class QuestionBooleanEntity implements QuestionBoolean {
     negativeContent: string;
     questionType: QuestionType.Boolean;
     answer: AnswerBooleanEntity | null;
-    constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, positiveAnswerLimit: number, positiveContent: string, negativeContent: string, answer: AnswerBooleanEntity | null);
+    positiveVotes: number;
+    negativeVotes: number;
+    constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, positiveAnswerLimit: number, positiveContent: string, negativeContent: string, positiveVotes: number, negativeVotes: number, answer: AnswerBooleanEntity | null);
 }
 export interface HistoricQuestionItem {
     questionId: number;
