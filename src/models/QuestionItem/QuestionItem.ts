@@ -4,6 +4,7 @@ export interface QuestionItem {
     id: number
     creator: SimpleUser
     questionId: number
+    votesCount: number
 
     itemContent: string
 }
@@ -13,6 +14,7 @@ export class QuestionItemEntity implements QuestionItem {
         public id: number,
         public creator: SimpleUser,
         public questionId: number,
+        public votesCount: number,
         public itemContent: string,
     ) { }
 }

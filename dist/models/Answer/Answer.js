@@ -2,10 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AnswerBooleanEntity = exports.AnswerEntity = void 0;
 class AnswerEntity {
-    constructor(userId, questionItemId, votes) {
+    constructor(userId, questionItemId) {
         this.userId = userId;
         this.questionItemId = questionItemId;
-        this.votes = votes;
     }
 }
 exports.AnswerEntity = AnswerEntity;

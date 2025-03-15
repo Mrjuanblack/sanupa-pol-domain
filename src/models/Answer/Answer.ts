@@ -1,7 +1,6 @@
 export interface Answer {
     userId: number
     questionItemId: number
-    votes: number
 }
 
 export interface AnswerBoolean {
@@ -14,7 +13,6 @@ export class AnswerEntity implements Answer {
     constructor(
         public userId: number,
         public questionItemId: number,
-        public votes: number,
     ) { }
 }
 
