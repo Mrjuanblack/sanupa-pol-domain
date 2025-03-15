@@ -51,12 +51,13 @@ class CompleteUserEntity {
 }
 exports.CompleteUserEntity = CompleteUserEntity;
 class UserEntity {
-    constructor(id, name, phone, ccType, cc, userRole) {
+    constructor(id, name, phone, ccType, cc, active, userRole) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.ccType = ccType;
         this.cc = cc;
+        this.active = active;
         this.userRole = userRole;
     }
 }

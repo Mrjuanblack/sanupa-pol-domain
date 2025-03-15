@@ -65,6 +65,7 @@ export interface User {
     cc: string
 
     userRole: UserRole
+    active: boolean
 }
 
 export class UserEntity implements User {
@@ -74,6 +75,7 @@ export class UserEntity implements User {
         public phone: string,
         public ccType: CCType,
         public cc: string,
+        public active: boolean,
         public userRole: UserRole
     ) { }
 }

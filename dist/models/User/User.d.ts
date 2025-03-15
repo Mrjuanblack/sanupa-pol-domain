@@ -40,6 +40,7 @@ export interface User {
     ccType: CCType;
     cc: string;
     userRole: UserRole;
+    active: boolean;
 }
 export declare class UserEntity implements User {
     id: number;
@@ -47,8 +48,9 @@ export declare class UserEntity implements User {
     phone: string;
     ccType: CCType;
     cc: string;
+    active: boolean;
     userRole: UserRole;
-    constructor(id: number, name: string, phone: string, ccType: CCType, cc: string, userRole: UserRole);
+    constructor(id: number, name: string, phone: string, ccType: CCType, cc: string, active: boolean, userRole: UserRole);
 }
 export interface SimpleUser {
     id: number;
