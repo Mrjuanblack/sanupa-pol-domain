@@ -19,6 +19,7 @@ export interface CompleteUser {
     ccType: CCType;
     cc: string;
     password: string;
+    active: boolean;
     userRole: UserRole;
 }
 export declare class CompleteUserEntity implements CompleteUser {
@@ -28,8 +29,9 @@ export declare class CompleteUserEntity implements CompleteUser {
     ccType: CCType;
     cc: string;
     password: string;
+    active: boolean;
     userRole: UserRole;
-    constructor(id: number, name: string, phone: string, ccType: CCType, cc: string, password: string, userRole: UserRole);
+    constructor(id: number, name: string, phone: string, ccType: CCType, cc: string, password: string, active: boolean, userRole: UserRole);
 }
 export interface User {
     id: number;

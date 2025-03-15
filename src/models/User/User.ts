@@ -40,6 +40,7 @@ export interface CompleteUser {
     cc: string
     password: string
 
+    active: boolean
     userRole: UserRole
 }
 
@@ -51,6 +52,7 @@ export class CompleteUserEntity implements CompleteUser {
         public ccType: CCType,
         public cc: string,
         public password: string,
+        public active: boolean,
         public userRole: UserRole
     ) { }
 }

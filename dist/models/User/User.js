@@ -38,13 +38,14 @@ function getCCTypeString(ccType) {
     }
 }
 class CompleteUserEntity {
-    constructor(id, name, phone, ccType, cc, password, userRole) {
+    constructor(id, name, phone, ccType, cc, password, active, userRole) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.ccType = ccType;
         this.cc = cc;
         this.password = password;
+        this.active = active;
         this.userRole = userRole;
     }
 }
