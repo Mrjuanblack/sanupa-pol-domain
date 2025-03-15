@@ -145,7 +145,7 @@ export interface HistoricQuestion {
     id: number
     content: string
     totalVotes: number
-    items: HistoricQuestionItem
+    items: HistoricQuestionItem[]
 }
 
 export class HistoricQuestionEntity implements HistoricQuestion {
@@ -153,7 +153,7 @@ export class HistoricQuestionEntity implements HistoricQuestion {
         public id: number,
         public content: string,
         public totalVotes: number,
-        public items: HistoricQuestionItem
+        public items: HistoricQuestionItem[]
     ) { }
 }
 

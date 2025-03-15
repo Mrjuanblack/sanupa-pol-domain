@@ -82,14 +82,14 @@ export interface HistoricQuestion {
     id: number;
     content: string;
     totalVotes: number;
-    items: HistoricQuestionItem;
+    items: HistoricQuestionItem[];
 }
 export declare class HistoricQuestionEntity implements HistoricQuestion {
     id: number;
     content: string;
     totalVotes: number;
-    items: HistoricQuestionItem;
-    constructor(id: number, content: string, totalVotes: number, items: HistoricQuestionItem);
+    items: HistoricQuestionItem[];
+    constructor(id: number, content: string, totalVotes: number, items: HistoricQuestionItem[]);
 }
 export interface CreateQuestion {
     questionType: QuestionType.SingleAnswer | QuestionType.MultipleAnswers;
