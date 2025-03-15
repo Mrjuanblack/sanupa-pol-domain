@@ -1,13 +1,11 @@
-interface AnswerBase {
+export interface Answer {
     userId: number
     questionItemId: number
 }
 
-export interface Answer extends AnswerBase {
-
-}
-
-export interface AnswerBoolean extends AnswerBase {
+export interface AnswerBoolean {
+    userId: number
+    questionId: number
     value: boolean
 }
 
@@ -21,7 +19,7 @@ export class AnswerEntity implements Answer {
 export class AnswerBooleanEntity implements AnswerBoolean {
     constructor(
         public userId: number,
-        public questionItemId: number,
+        public questionId: number,
         public value: boolean
     ) { }
 }

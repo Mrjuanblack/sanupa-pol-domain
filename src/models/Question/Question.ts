@@ -1,4 +1,4 @@
-import { AnswerEntity } from "../Answer/Answer";
+import { AnswerBooleanEntity, AnswerEntity } from "../Answer/Answer";
 import { QuestionItemEntity } from "../QuestionItem/QuestionItem";
 
 export enum QuestionType {
@@ -91,7 +91,7 @@ export class QuestionEntity implements Question {
 
 export class Question_AnswersEntity extends QuestionEntity {
     questionItems: QuestionItemEntity[];
-    answer: AnswerEntity
+    answer: AnswerEntity | null
     constructor(
         id: number,
         categoryId: number,
@@ -99,7 +99,7 @@ export class Question_AnswersEntity extends QuestionEntity {
         activeDate: Date,
         deactivateDate: Date,
         questionItems: QuestionItemEntity[],
-        answer: AnswerEntity
+        answer: AnswerEntity | null
     ) {
         super(id, categoryId, questionContent, activeDate, deactivateDate)
         this.questionItems = questionItems;
@@ -109,7 +109,7 @@ export class Question_AnswersEntity extends QuestionEntity {
 
 export class QuestionBooleanEntity implements QuestionBoolean {
     questionType: QuestionType.Boolean
-
+    answer: AnswerBooleanEntity | null
     constructor(
         public id: number,
         public categoryId: number,
@@ -119,8 +119,10 @@ export class QuestionBooleanEntity implements QuestionBoolean {
         public positiveAnswerLimit: number,
         public positiveContent: string,
         public negativeContent: string,
+        answer: AnswerBooleanEntity | null
     ) {
         this.questionType = QuestionType.Boolean;
+        this.answer = answer;
     }
 }
 

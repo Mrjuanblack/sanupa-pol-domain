@@ -1,4 +1,4 @@
-import { AnswerEntity } from "../Answer/Answer";
+import { AnswerBooleanEntity, AnswerEntity } from "../Answer/Answer";
 import { QuestionItemEntity } from "../QuestionItem/QuestionItem";
 export declare enum QuestionType {
     Boolean = 1,
@@ -51,8 +51,8 @@ export declare class QuestionEntity implements Question {
 }
 export declare class Question_AnswersEntity extends QuestionEntity {
     questionItems: QuestionItemEntity[];
-    answer: AnswerEntity;
-    constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, questionItems: QuestionItemEntity[], answer: AnswerEntity);
+    answer: AnswerEntity | null;
+    constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, questionItems: QuestionItemEntity[], answer: AnswerEntity | null);
 }
 export declare class QuestionBooleanEntity implements QuestionBoolean {
     id: number;
@@ -64,7 +64,8 @@ export declare class QuestionBooleanEntity implements QuestionBoolean {
     positiveContent: string;
     negativeContent: string;
     questionType: QuestionType.Boolean;
-    constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, positiveAnswerLimit: number, positiveContent: string, negativeContent: string);
+    answer: AnswerBooleanEntity | null;
+    constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, positiveAnswerLimit: number, positiveContent: string, negativeContent: string, answer: AnswerBooleanEntity | null);
 }
 export interface CreateQuestion {
     questionType: QuestionType.SingleAnswer | QuestionType.MultipleAnswers;

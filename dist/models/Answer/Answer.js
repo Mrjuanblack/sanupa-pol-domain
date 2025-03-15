@@ -9,9 +9,9 @@ class AnswerEntity {
 }
 exports.AnswerEntity = AnswerEntity;
 class AnswerBooleanEntity {
-    constructor(userId, questionItemId, value) {
+    constructor(userId, questionId, value) {
         this.userId = userId;
-        this.questionItemId = questionItemId;
+        this.questionId = questionId;
         this.value = value;
     }
 }
