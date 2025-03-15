@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.QuestionBooleanEntity = exports.Question_AnswersEntity = exports.QuestionEntity = exports.QuestionMultiple_AnswersEntity = exports.QuestionMultipleEntity = exports.QuestionTypeList = exports.QuestionType = void 0;
+exports.HistoricQuestionEntity = exports.HistoricQuestionItemEntity = exports.QuestionBooleanEntity = exports.Question_AnswersEntity = exports.QuestionEntity = exports.QuestionMultiple_AnswersEntity = exports.QuestionMultipleEntity = exports.QuestionTypeList = exports.QuestionType = void 0;
 exports.getQuestionTypeString = getQuestionTypeString;
 var QuestionType;
 (function (QuestionType) {
@@ -72,3 +72,20 @@ class QuestionBooleanEntity {
     }
 }
 exports.QuestionBooleanEntity = QuestionBooleanEntity;
+class HistoricQuestionItemEntity {
+    constructor(questionId, content, votes) {
+        this.questionId = questionId;
+        this.content = content;
+        this.votes = votes;
+    }
+}
+exports.HistoricQuestionItemEntity = HistoricQuestionItemEntity;
+class HistoricQuestionEntity {
+    constructor(id, content, totalVotes, items) {
+        this.id = id;
+        this.content = content;
+        this.totalVotes = totalVotes;
+        this.items = items;
+    }
+}
+exports.HistoricQuestionEntity = HistoricQuestionEntity;

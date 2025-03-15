@@ -126,6 +126,37 @@ export class QuestionBooleanEntity implements QuestionBoolean {
     }
 }
 
+export interface HistoricQuestionItem {
+    questionId: number
+    content: string
+    votes: number
+}
+
+export class HistoricQuestionItemEntity implements HistoricQuestionItem {
+    constructor(
+        public questionId: number,
+        public content: string,
+        public votes: number
+    ) { }
+
+}
+
+export interface HistoricQuestion {
+    id: number
+    content: string
+    totalVotes: number
+    items: HistoricQuestionItem
+}
+
+export class HistoricQuestionEntity implements HistoricQuestion {
+    constructor(
+        public id: number,
+        public content: string,
+        public totalVotes: number,
+        public items: HistoricQuestionItem
+    ) { }
+}
+
 export interface CreateQuestion {
     questionType: QuestionType.SingleAnswer | QuestionType.MultipleAnswers
     categoryId: number

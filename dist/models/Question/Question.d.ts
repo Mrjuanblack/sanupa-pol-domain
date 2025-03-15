@@ -67,6 +67,30 @@ export declare class QuestionBooleanEntity implements QuestionBoolean {
     answer: AnswerBooleanEntity | null;
     constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, positiveAnswerLimit: number, positiveContent: string, negativeContent: string, answer: AnswerBooleanEntity | null);
 }
+export interface HistoricQuestionItem {
+    questionId: number;
+    content: string;
+    votes: number;
+}
+export declare class HistoricQuestionItemEntity implements HistoricQuestionItem {
+    questionId: number;
+    content: string;
+    votes: number;
+    constructor(questionId: number, content: string, votes: number);
+}
+export interface HistoricQuestion {
+    id: number;
+    content: string;
+    totalVotes: number;
+    items: HistoricQuestionItem;
+}
+export declare class HistoricQuestionEntity implements HistoricQuestion {
+    id: number;
+    content: string;
+    totalVotes: number;
+    items: HistoricQuestionItem;
+    constructor(id: number, content: string, totalVotes: number, items: HistoricQuestionItem);
+}
 export interface CreateQuestion {
     questionType: QuestionType.SingleAnswer | QuestionType.MultipleAnswers;
     categoryId: number;
