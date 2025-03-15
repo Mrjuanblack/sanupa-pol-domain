@@ -1,3 +1,4 @@
+import { AnswerEntity } from "../Answer/Answer";
 import { QuestionItemEntity } from "../QuestionItem/QuestionItem";
 
 export enum QuestionType {
@@ -49,16 +50,19 @@ export class QuestionMultipleEntity implements QuestionMultiple {
 
 export class QuestionMultiple_AnswersEntity extends QuestionMultipleEntity {
     questionItems: QuestionItemEntity[];
+    answers: AnswerEntity[]
     constructor(
         id: number,
         categoryId: number,
         questionContent: string,
         activeDate: Date,
         deactivateDate: Date,
-        questionItems: QuestionItemEntity[]
+        questionItems: QuestionItemEntity[],
+        answers: AnswerEntity[]
     ) {
         super(id, categoryId, questionContent, activeDate, deactivateDate)
         this.questionItems = questionItems;
+        this.answers = answers;
     }
 }
 
@@ -87,16 +91,19 @@ export class QuestionEntity implements Question {
 
 export class Question_AnswersEntity extends QuestionEntity {
     questionItems: QuestionItemEntity[];
+    answer: AnswerEntity
     constructor(
         id: number,
         categoryId: number,
         questionContent: string,
         activeDate: Date,
         deactivateDate: Date,
-        questionItems: QuestionItemEntity[]
+        questionItems: QuestionItemEntity[],
+        answer: AnswerEntity
     ) {
         super(id, categoryId, questionContent, activeDate, deactivateDate)
         this.questionItems = questionItems;
+        this.answer = answer;
     }
 }
 

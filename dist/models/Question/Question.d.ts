@@ -1,3 +1,4 @@
+import { AnswerEntity } from "../Answer/Answer";
 import { QuestionItemEntity } from "../QuestionItem/QuestionItem";
 export declare enum QuestionType {
     Boolean = 1,
@@ -30,7 +31,8 @@ export declare class QuestionMultipleEntity implements QuestionMultiple {
 }
 export declare class QuestionMultiple_AnswersEntity extends QuestionMultipleEntity {
     questionItems: QuestionItemEntity[];
-    constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, questionItems: QuestionItemEntity[]);
+    answers: AnswerEntity[];
+    constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, questionItems: QuestionItemEntity[], answers: AnswerEntity[]);
 }
 export interface QuestionBoolean extends QuestionBase {
     questionType: QuestionType.Boolean;
@@ -49,7 +51,8 @@ export declare class QuestionEntity implements Question {
 }
 export declare class Question_AnswersEntity extends QuestionEntity {
     questionItems: QuestionItemEntity[];
-    constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, questionItems: QuestionItemEntity[]);
+    answer: AnswerEntity;
+    constructor(id: number, categoryId: number, questionContent: string, activeDate: Date, deactivateDate: Date, questionItems: QuestionItemEntity[], answer: AnswerEntity);
 }
 export declare class QuestionBooleanEntity implements QuestionBoolean {
     id: number;

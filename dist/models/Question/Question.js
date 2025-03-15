@@ -31,9 +31,10 @@ class QuestionMultipleEntity {
 }
 exports.QuestionMultipleEntity = QuestionMultipleEntity;
 class QuestionMultiple_AnswersEntity extends QuestionMultipleEntity {
-    constructor(id, categoryId, questionContent, activeDate, deactivateDate, questionItems) {
+    constructor(id, categoryId, questionContent, activeDate, deactivateDate, questionItems, answers) {
         super(id, categoryId, questionContent, activeDate, deactivateDate);
         this.questionItems = questionItems;
+        this.answers = answers;
     }
 }
 exports.QuestionMultiple_AnswersEntity = QuestionMultiple_AnswersEntity;
@@ -49,9 +50,10 @@ class QuestionEntity {
 }
 exports.QuestionEntity = QuestionEntity;
 class Question_AnswersEntity extends QuestionEntity {
-    constructor(id, categoryId, questionContent, activeDate, deactivateDate, questionItems) {
+    constructor(id, categoryId, questionContent, activeDate, deactivateDate, questionItems, answer) {
         super(id, categoryId, questionContent, activeDate, deactivateDate);
         this.questionItems = questionItems;
+        this.answer = answer;
     }
 }
 exports.Question_AnswersEntity = Question_AnswersEntity;
