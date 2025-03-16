@@ -10,7 +10,7 @@ export function getCategoryString(category: Category): string {
         case Category.AlwaysForward:
             return "Siempre Adelante, Ni Un Paso Atrás";
         case Category.ThinkingTank:
-            return "Tanque de Pensamiento";
+            return "Tanque de Pensamiento y Liderazgo";
         case Category.Recreation:
             return "Recreación y Acción";
         case Category.Economic:
