@@ -24,5 +24,7 @@ __exportStar(require("./models/Question/Question"), exports);
 __exportStar(require("./models/Question/QuestionValidation"), exports);
 __exportStar(require("./models/QuestionItem/QuestionItem"), exports);
 __exportStar(require("./models/QuestionItem/QuestionItemValidation"), exports);
+__exportStar(require("./models/UserSettings/UserSettings"), exports);
+__exportStar(require("./models/UserSettings/UserSettingsValidation"), exports);
 __exportStar(require("./models/Pagination"), exports);
 __exportStar(require("./Utils"), exports);

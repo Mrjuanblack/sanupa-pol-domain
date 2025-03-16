@@ -8,5 +8,7 @@ export * from './models/Question/Question';
 export * from './models/Question/QuestionValidation';
 export * from './models/QuestionItem/QuestionItem';
 export * from './models/QuestionItem/QuestionItemValidation';
+export * from './models/UserSettings/UserSettings';
+export * from './models/UserSettings/UserSettingsValidation';
 export * from './models/Pagination';
 export * from './Utils';
